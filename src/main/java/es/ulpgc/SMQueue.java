@@ -1,23 +1,14 @@
 package es.ulpgc;
 
+import java.util.Arrays;
+
 public class SMQueue {
-    public static Integer timeToCheckoutOf(Integer[] clients, int tills) {
-        Integer result = 0;
-        if (tills == 2) {
-            Integer currentTime = 0;
-            for (Integer time : clients) {
-                if (currentTime == 0) {
-                    result+=time;
-                    currentTime = time;
-                } else {
-                    if (currentTime < time) {
-                        result+=time-currentTime;
-                    } else {
-                        currentTime-= time;
-                    }
-                }
-            }
-        } else for ( Integer time : clients ) result += time;
-        return result;
+    public static Integer timeToCheckoutOf(int[] clients, int tills) {
+        int[] res = new int[tills];
+        for (int i = 0; i < clients.length; i++){
+            res[0] += clients[i];
+            Arrays.sort(res);
+        }
+        return res[tills-1];
     }
 }
