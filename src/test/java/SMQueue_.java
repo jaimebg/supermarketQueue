@@ -13,5 +13,6 @@ public class SMQueue_ {
     @Test
     public void given_two_queues_return_the_sum_of_queue_with_more_clients_sum() {
         assertThat(SMQueue.timeToCheckoutOf(new Integer[]{ 5,3,4 },2)).isEqualTo(7);
+        assertThat(SMQueue.timeToCheckoutOf(new Integer[]{ 5,2,4 },2)).isEqualTo(6);
     }
 }
